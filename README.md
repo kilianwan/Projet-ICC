@@ -1,7 +1,6 @@
-# Projet-ICC
-
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -127,15 +126,19 @@ class Vecteur{
 		
 		return v2;		
 	}
-											
-	/*double norme() const{
-		return vecteur.prod_scal(vecteur);
-	}			
-	
-	double norme2() const {
-		return norme*norme;
+			
+	double norme2() const {												// mucho texto
+		return (*this).prod_scal(*this);
 	}												
-		*/	
+									
+	double norme() const{
+		return sqrt(norme2());
+	}
+	
+	Vecteur unitaire() const {
+		double x(norme());
+		return mult(1/x);
+		}
 		
 	
 	private:
@@ -188,6 +191,7 @@ if (not vect1.compare(vect3)) {
 }
 cout << " vecteur 3." << endl;
 
+cout << "Norme du vecteur" << vect1.norme2();
 	
 	return 0;
 }
